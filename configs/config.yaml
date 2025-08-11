@@ -13,11 +13,13 @@ training:
   checkpoint_dir: ${training.output_base}/${training.model_name}_${training.version}/checkpoints # Directory where model checkpoints will be saved this is the place holder and `construct_training_paths` will replace it with the actual path
   final_model_dir: ${training.output_base}/${training.model_name}_${training.version}/final_model # Directory where the final model will be saved this is the place holder and `construct_training_paths` will replace it with the actual path
 
-  num_epochs: 10000 # Number of epochs to train the model
-  batch_size: 16 # Batch size for training
-  learning_rate: 5e-5 # Learning rate for the optimizer
-  logging_steps: 100 # Number of steps between logging training metrics
-  save_steps: 10000 # Number of steps between saving model checkpoints
-  save_total_limit: 2 # Maximum number of checkpoints to keep, older checkpoints will be deleted
-  max_length: 512 # Maximum sequence length for the input data, this is the maximum number of tokens in a sequence.
-  
+  val_size: 0.1 # Proportion of the data to use for the validation set
+  test_size: 0.2 # Proportion of the data to use for the test set
+  random_state: 42 # Random seed for reproducibility
+  latent_dim: 4 # Dimensionality of the latent space in the VQ-VAE model
+  num_embeddings: 5 # Number of embeddings in the VQ-VAE model
+  commitment_cost: 0.25 # Commitment cost for the VQ-VAE model
+  hidden_dims: [128, 256, 512] # Hidden dimensions for the VQ-VAE model
+  num_epochs: 100 # Number of epochs to train the model
+  batch_size: 32 # Batch size for training
+  learning_rate: 0.001 # Learning rate for the optimizer
