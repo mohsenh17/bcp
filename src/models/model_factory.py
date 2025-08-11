@@ -1,5 +1,5 @@
-from linear_regression_model import train_linear_regression
-from random_forest_model import train_random_forest
+from src.models.linear_regression_model import train_linear_regression
+from src.models.random_forest_model import train_random_forest
 
 
 def train_model(model_name, X_train, y_train, X_train_scaled=None):
