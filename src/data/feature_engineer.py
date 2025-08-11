@@ -41,3 +41,27 @@ def process_impedance_features(data: pd.DataFrame) -> pd.DataFrame:
     features['Total_impedance'] = np.sqrt(features['Zreal_mean']**2 + features['Zimag_mean']**2)
 
     return features
+
+if __name__ == "__main__":
+    import sys
+    from pathlib import Path
+    sys.path.append(str(Path(__file__).resolve().parents[1]))
+    from config.load_config import load_config
+    
+    if len(sys.argv) > 1:
+        config = load_config(sys.argv[1])
+    else:
+        config = load_config()
+
+    csv_file_path = config['paths']['dataset']  # Path to the battery capacity dataset
+
+    # Load data
+    data = pd.read_csv(csv_file_path)
+
+    # Process impedance features
+    impedance_features = process_impedance_features(data)
+    
+    print("\n=== IMPEDANCE FEATURES ===")
+    print(impedance_features.head())
+    print("\n=== IMPEDANCE FEATURES STATISTICS ===")
+    print(impedance_features.describe())
