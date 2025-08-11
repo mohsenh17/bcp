@@ -16,10 +16,11 @@ def process_impedance_features(data: pd.DataFrame) -> pd.DataFrame:
     zreal_cols = [c for c in data.columns if c.startswith('Zreal_')]
     zimag_cols = [c for c in data.columns if c.startswith('Zimag_')]
 
-    features = pd.DataFrame({
+    """features = pd.DataFrame({
         'Cell ID': data['Cell ID'],
         'Capacity (mAh)': data['Capacity (mAh)'],
-    })
+    })"""
+    features = data
 
     
     zreal_data = data[zreal_cols]
