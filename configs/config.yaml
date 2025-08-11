@@ -1,5 +1,6 @@
 project_root: /home/mohsen/work/yorku/apply/pulsenics/
 paths:
+  dataset: bcp/data/interview-dataset.csv # This is the path to the battery capacity dataset
 
   figures: bcp/figures/ # This is the directory where figures will be saved
   
