@@ -1,4 +1,4 @@
-from metrics import compute_regression_metrics
+from evaluation.metrics import compute_regression_metrics
 
 class ModelEvaluator:
     def __init__(self, models, X_test, X_test_scaled, y_test):
